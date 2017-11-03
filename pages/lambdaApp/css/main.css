@@ -345,6 +345,7 @@ div, p, h1, h2, h3, h4, h5, ul, li, a {
   /* nav__logo partcss */ }
 
 .nav__logo {
+  color: inherit;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -388,8 +389,9 @@ div, p, h1, h2, h3, h4, h5, ul, li, a {
   line-height: 40px;
   color: inherit;
   font-weight: normal;
-  line-height: 35px;
-  /* hero present part */ }
+  line-height: 35px; }
+  .nav__main a.active {
+    color: rgba(87, 166, 168, 0.78); }
   .nav__main a:hover {
     text-decoration: none;
     color: inherit; }
@@ -401,6 +403,11 @@ div, p, h1, h2, h3, h4, h5, ul, li, a {
             border-radius: 50px; }
     .nav__main a.nav__get i {
       margin-right: 10px; }
+
+.hero__nav_up {
+  /* hero present part */ }
+  .hero__nav_up .nav__main a.active {
+    color: #fff; }
 
 .hero__present .wrap {
   padding-top: 50px;
@@ -444,10 +451,10 @@ div, p, h1, h2, h3, h4, h5, ul, li, a {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   margin-bottom: 90px; }
 
 .app__buttons a {
@@ -481,6 +488,35 @@ div, p, h1, h2, h3, h4, h5, ul, li, a {
 /* present right part */
 .present__right img {
   width: 100%; }
+
+.dot-container {
+  position: fixed;
+  top: 50%;
+  right: 28px;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%); }
+  .dot-container li {
+    margin-bottom: 34px; }
+    .dot-container li:last-child {
+      margin-bottom: 0; }
+  .dot-container a {
+    display: block;
+    width: 6px;
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.9);
+    -webkit-box-shadow: 0px 0px 0px 3px rgba(114, 180, 182, 0.5);
+            box-shadow: 0px 0px 0px 3px rgba(114, 180, 182, 0.5);
+    -webkit-border-radius: 50%;
+            border-radius: 50%;
+    -webkit-box-sizing: content-box;
+            box-sizing: content-box; }
+  .dot-container a.active {
+    width: 8px;
+    height: 8px;
+    background-color: rgba(114, 180, 182, 0.9);
+    -webkit-box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.4);
+            box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.4); }
 
 .features__main {
   display: -webkit-box;

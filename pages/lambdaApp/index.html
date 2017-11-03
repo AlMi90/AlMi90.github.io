@@ -9,8 +9,6 @@
 	<link rel="stylesheet" href="css/main.css">
 
 	<!-- owl.carousel -->
-
-	<link rel="stylesheet" href="css/section-scroll.css">
 	<link rel="stylesheet" href="css/slick.css">
 
 	<!-- bootstrap -->
@@ -21,23 +19,23 @@
 </head>
 <body>
 
-	<div class="hero scrollable-section">
+	<div class="hero" id="hero">
 		<div class="hero__nav itActive">
 			<div class="wrap">
-				<div class="nav__logo">
+				<a class="nav__logo" href="#hero" data-scroll='true'>
 					<img src="img/lambda-app-logo.png" alt="logo">
 					<p>LAMBDA</p>
-				</div>
+				</a>
 				<button class="hamburger-button hamburger-button_htx">
 					<span>toggle menu</span>
 				</button>
 				<ul class="nav nav__main">
-					<li><a href="#">ABOUT</a></li>
-					<li><a href="#">FEATURES</a></li>
-					<li><a href="#">DESIGN</a></li>
-					<li><a href="#">SCREENSHOTS</a></li>
-					<li><a href="#">TESTIMONIALS</a></li>
-					<li><a href="#" class="nav__get"><i class="fa fa-shopping-cart" aria-hidden="true"></i>GET IT</a></li>
+					<li><a href="#hero" data-scroll='true' data-nav='true'>ABOUT</a></li>
+					<li><a href="#features" data-scroll='true' data-nav='true'>FEATURES</a></li>
+					<li><a href="#design" data-scroll='true' data-nav='true'>DESIGN</a></li>
+					<li><a href="#screenshots" data-scroll='true' data-nav='true'>SCREENSHOTS</a></li>
+					<li><a href="#reviews" data-scroll='true' data-nav='true'>TESTIMONIALS</a></li>
+					<li><a href="#get" class="nav__get" data-scroll='true' data-nav='true'><i class="fa fa-shopping-cart" aria-hidden="true"></i>GET IT</a></li>
 				</ul>
 			</div>
 		</div>
@@ -58,7 +56,7 @@
 		</div>
 	</div>
 
-	<div class="features scrollable-section">
+	<div class="features" id="features">
 		<div class="wrap">
 			<div class="features__head page-part__title">
 				<h1 class="page-part__caption">AWESOME FEATURES</h1>
@@ -112,7 +110,7 @@
 		</div>
 	</div>
 
-	<div class="design scrollable-section">
+	<div class="design" id="design">
 		<div class="wrap">
 			<div class="design__head page-part__title">
 				<h1 class="page-part__caption">AMAZING DESIGN</h1>
@@ -125,7 +123,7 @@
 		</div>
 	</div>
 
-	<div class="screenshots scrollable-section">
+	<div class="screenshots " id="screenshots">
 		<div class="screenshots__head page-part__title">
 			<h1 class="page-part__caption">SCREENSHOTS</h1>
 			<div class="page-part__border"></div>
@@ -177,7 +175,7 @@
 		</div>
 	</div>
 
-	<div class="app">
+	<div class="app" >
 		<div class="wrap">
 			<div class="app__left">
 				<img src="img/app-06.png" alt="img" class="app__img">
@@ -214,7 +212,7 @@
 		</div>
 	</div>
 
-	<div class="reviews scrollable-section">
+	<div class="reviews" id="reviews">
 		<div class="wrap">
 			<div class="reviews-slider">
 				<div class="review">
@@ -262,7 +260,7 @@
 		</div>
 	</div>
 
-	<div class="get scrollable-section">
+	<div class="get" id="get">
 		<div class="get__head page-part__title page-part__title_get">
 			<h1 class="page-part__caption">GET IT NOW</h1>
 			<div class="page-part__border"></div>
@@ -282,9 +280,16 @@
 		</div>
 	</div>
 
+	<ul class="dot-container">
+		<li><a href="#hero" data-scroll='true' data-nav='true'></a></li>
+		<li><a href="#features" data-scroll='true' data-nav='true'></a></li>
+		<li><a href="#design" data-scroll='true' data-nav='true'></a></li>
+		<li><a href="#screenshots" data-scroll='true' data-nav='true'></a></li>
+		<li><a href="#reviews" data-scroll='true' data-nav='true'></a></li>
+		<li><a href="#get" data-scroll='true' data-nav='true'></a></li>
+	</ul>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="js/section-scroll/jquery.section-scroll.js"></script>
 <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
 <script src="js/slick/slick.min.js"></script>
 <script src="js/main.js"></script>
