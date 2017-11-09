@@ -31,21 +31,11 @@ $(function (e) {
 		slider.next = $(options.next);
 		slider.autoPlay = options.autoPlay;
 		slider.autoPlayDelay = options.autoPlayDelay;
-		slider.timeLine = $(options.timeLine);
-		slider.timeLineValue = $(options.timeLineValue);
 
 		slider.prev.on('click', clickPrev);
 		slider.next.on('click', clickNext);
 
 
-		function timeLine() {
-			if (slider.timeLineValue) {
-				if ($(slider.timeLine).hasClass('itActive')) {
-					$(slider.timeLine).removeClass('itActive')
-				}
-				else {$(slider.timeLine).addClass('itActive')}
-			}
-		}
 
 		var autoPlayTimer = setInterval(function(e) {
 			clickPrev();
@@ -68,7 +58,6 @@ $(function (e) {
 
 		function clickNext() {
 			clearInterval(autoPlayTimer)
-			timeLine()
 			removeClassItActive();
 			i++;
 			checkForClickNext();
