@@ -1,4 +1,6 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+// Main javascript entry point
+// Should handle bootstrapping/starting application
 
 'use strict';
 
@@ -13,16 +15,14 @@ $(function (e) {
 		prev: $prev,
 		next: $next,
 		autoPlay : true,
-		autoPlayDelay : 5000,
-		timeLine: $timeLine,
-		timeLineValue: true,
+		autoPlayDelay : 3000,
 	})
 
 	function Slider(options) {
 
 		var slider = this, 
 			i = 0,
-			toogleButton = false;
+			autoPlayTimer;
 
 		slider.images = $(options.images);
 		slider.prev = $(options.prev);
@@ -30,23 +30,31 @@ $(function (e) {
 		slider.autoPlay = options.autoPlay;
 		slider.autoPlayDelay = options.autoPlayDelay;
 
-		slider.prev.on('click', clickPrev);
-		slider.next.on('click', clickNext);
-
-
-
-		var autoPlayTimer = setInterval(function(e) {
+		slider.prev.on('click', function() {
+			clearInterval(autoPlayTimer);
 			clickPrev();
-		}, slider.autoPlayDelay);
+			valueAutoPlayTimer();
+		});
+
+		slider.next.on('click', function() {
+			clearInterval(autoPlayTimer);
+			clickNext();
+			valueAutoPlayTimer();
+		});
+
+		if (slider.autoPlay) {
+			autoPlayTimer = setInterval(function(e) {
+				clickNext();
+			}, slider.autoPlayDelay);
+		}
 
 		function valueAutoPlayTimer(e) {
 			autoPlayTimer = setInterval(function(e) {
-				clickPrev();
+				clickNext();
 			}, slider.autoPlayDelay);
 		}
 
 		function clickPrev() {
-			clearInterval(autoPlayTimer)
 			removeClassItActive();
 			i--;
 			checkForClickPrev();
@@ -54,7 +62,6 @@ $(function (e) {
 		}
 
 		function clickNext() {
-			clearInterval(autoPlayTimer)
 			removeClassItActive();
 			i++;
 			checkForClickNext();

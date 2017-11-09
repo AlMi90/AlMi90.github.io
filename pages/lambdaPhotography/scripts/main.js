@@ -15,16 +15,14 @@ $(function (e) {
 		prev: $prev,
 		next: $next,
 		autoPlay : true,
-		autoPlayDelay : 5000,
-		timeLine: $timeLine,
-		timeLineValue: true,
+		autoPlayDelay : 1000,
 	})
 
 	function Slider(options) {
 
 		var slider = this, 
 			i = 0,
-			toogleButton = false;
+			autoPlayTimer;
 
 		slider.images = $(options.images);
 		slider.prev = $(options.prev);
@@ -32,23 +30,32 @@ $(function (e) {
 		slider.autoPlay = options.autoPlay;
 		slider.autoPlayDelay = options.autoPlayDelay;
 
-		slider.prev.on('click', clickPrev);
-		slider.next.on('click', clickNext);
-
-
-
-		var autoPlayTimer = setInterval(function(e) {
+		slider.prev.on('click', function() {
+			clearInterval(autoPlayTimer);
 			clickPrev();
+		});
+
+		slider.next.on('click', function() {
+			clearInterval(autoPlayTimer);
+			clickPrev();
+		});
+
+		if (slider.autoPlay) {
+			autoPlayTimer = setInterval(function(e) {
+				clickNext();
+			}, slider.autoPlayDelay);
+		}
+		var autoPlayTimer = setInterval(function(e) {
+			clickNext();
 		}, slider.autoPlayDelay);
 
 		function valueAutoPlayTimer(e) {
 			autoPlayTimer = setInterval(function(e) {
-				clickPrev();
+				clickNext();
 			}, slider.autoPlayDelay);
 		}
 
 		function clickPrev() {
-			clearInterval(autoPlayTimer)
 			removeClassItActive();
 			i--;
 			checkForClickPrev();
@@ -56,7 +63,6 @@ $(function (e) {
 		}
 
 		function clickNext() {
-			clearInterval(autoPlayTimer)
 			removeClassItActive();
 			i++;
 			checkForClickNext();
