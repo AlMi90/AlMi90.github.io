@@ -16,8 +16,8 @@
   <![endif]-->
   <div class="preloader">
     <div class="preloader__spin"></div>
-  </div>
-  <div class="header">
+  </div><a href="#header" class="upBtn"><i class="fa fa-chevron-up"></i></a>
+  <div id="header" class="header">
     <div class="header__container"><a href="index.html" class="header__logo logo"><img src="images/elements/logo.png"></a>
       <button class="hamburger-button hamburger-button_htx"><span>toggle menu</span></button>
         <ul class="header__nav">
@@ -34,7 +34,7 @@
         </div>
       <div class="hero__timeLine"></div>
       <div class="hero__btn hero__btn_prev"><i aria-hidden="true" class="fa fa-chevron-left"></i></div>
-      <div class="hero__btn hero__btn_next"><i aria-hidden="true" class="fa fa-chevron-right"></i></div><a href="#galery" class="hero__mouse-slide"><img src="images/elements/icon-mouse.png"></a>
+      <div class="hero__btn hero__btn_next"><i aria-hidden="true" class="fa fa-chevron-right"></i></div><a href="#galery" data-scroll="true" class="hero__mouse-slide"><img src="images/elements/icon-mouse.png"></a>
     </div>
   </div>
   <div id="galery" class="gallery">
@@ -172,7 +172,9 @@
   <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/jquery.magnific-popup.min.js"></script>
   <script src="./scripts/main-popup.js"></script>
-  <script src="./scripts/main.js"></script>
   <script src="./scripts/main-preloader.js"></script>
   <script src="./scripts/main-gMenu.js"></script>
+  <script src="./scripts/main-scroll.js"></script>
+  <script src="./scripts/main-slider.js"></script>
+  <script src="./scripts/main-upBtn.js"></script>
 </body></html>

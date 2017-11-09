@@ -15,8 +15,8 @@
   <![endif]-->
   <div class="preloader">
     <div class="preloader__spin"></div>
-  </div>
-  <div class="header">
+  </div><a href="#header" class="upBtn"><i class="fa fa-chevron-up"></i></a>
+  <div id="header" class="header">
     <div class="header__container"><a href="index.html" class="header__logo logo"><img src="images/elements/logo.png"></a>
       <button class="hamburger-button hamburger-button_htx"><span>toggle menu</span></button>
         <ul class="header__nav">
@@ -34,7 +34,7 @@
           <div class="albums__main">
             <h2>Technology</h2>
             <p>Do you love photography as much as you love making cool websites? Then, boy – have we got the lorem ipsum for you</p><a href="technology.html">View album</a>
-          </div><a href="#people" class="albums__arrow"><i class="fa fa-chevron-down"></i></a>
+          </div><a href="#people" data-scroll="true" class="albums__arrow"><i class="fa fa-chevron-down"></i></a>
         </div>
       </div>
       <div style="background : url(images/backgrounds/1600x.jpg) no-repeat 50% 0 fixed; background-size: cover;" id="people" class="albums__album">
@@ -43,7 +43,7 @@
           <div class="albums__main">
             <h2>People</h2>
             <p>Do you love photography as much as you love making cool websites? Then, boy – have we got the lorem ipsum for you</p><a href="people.html">View album</a>
-          </div><a href="#nature" class="albums__arrow"><i class="fa fa-chevron-down"></i></a>
+          </div><a href="#nature" data-scroll="true" class="albums__arrow"><i class="fa fa-chevron-down"></i></a>
         </div>
       </div>
       <div style="background : url(images/backgrounds/1600xxx.jpg) no-repeat 50% 0 fixed; background-size: cover;" id="nature" class="albums__album">
@@ -64,4 +64,6 @@
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="./scripts/main-preloader.js"></script>
   <script src="./scripts/main-gMenu.js"></script>
+  <script src="./scripts/main-scroll.js"></script>
+  <script src="./scripts/main-upBtn.js"></script>
 </body></html>
