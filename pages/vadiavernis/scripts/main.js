@@ -32,9 +32,8 @@ $(function () {
 		$houres.find(".time__numb").html(houres);
 		$day.find(".time__numb").html(day);
 		$yers.find(".time__numb").html(yers);
-		$seconds.find(".time__text").sklonenie( seconds, "секунда", "секунды", "секунд");
-
-		$minutes.find(".time__text").sklonenie( minutes, "минута", "минуты", "минут");
+		$seconds.find(".time__text").sklonenie( seconds, "секунду", "секунды", "секунд");
+		$minutes.find(".time__text").sklonenie( minutes, "минуту", "минуты", "минут");
 		$houres.find(".time__text").sklonenie( houres, "час", "часа", "часов");
 		$day.find(".time__text").sklonenie( day, "день", "дня", "дней");
 		$yers.find(".time__text").sklonenie( yers, "год", "года", "года");
