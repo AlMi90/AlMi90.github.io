@@ -5,19 +5,19 @@
 'use strict';
 
 $(function () {
-	var timeInMsOpen;
-	var timeInMsClose = Date.parse("May 20, 2019");;
-	var timeInMsRemainder;
-	var seconds;
-	var minutes;
-	var houres;
-	var day;
-	var yers;
-	var $seconds = $(".main__seconds");
-	var $minutes = $(".main__minutes ");
-	var $houres = $(".main__hours");
-	var $day = $(".main__days");
-	var $yers = $(".main__yers");
+	var timeInMsOpen,
+		timeInMsClose = Date.parse("May 20, 2019"),
+		timeInMsRemainder,
+		seconds,
+		minutes,
+		houres,
+		day,
+		yers,
+		$seconds = $(".main__seconds"),
+		$minutes = $(".main__minutes"),
+		$houres = $(".main__hours"),
+		$day = $(".main__days"),
+		$yers = $(".main__yers");
 
 	var timer = setInterval(function() {
 		timeInMsOpen = Date.now();
@@ -32,7 +32,17 @@ $(function () {
 		$houres.find(".time__numb").html(houres);
 		$day.find(".time__numb").html(day);
 		$yers.find(".time__numb").html(yers);
+		$seconds.find(".time__text").sklonenie( seconds, "секунда", "секунды", "секунд");
+
+		$minutes.find(".time__text").sklonenie( minutes, "минута", "минуты", "минут");
+		$houres.find(".time__text").sklonenie( houres, "час", "часа", "часов");
+		$day.find(".time__text").sklonenie( day, "день", "дня", "дней");
+		$yers.find(".time__text").sklonenie( yers, "год", "года", "года");
 	}, 1000);
+
+
+
+
 })
 },{}]},{},[1])
 
