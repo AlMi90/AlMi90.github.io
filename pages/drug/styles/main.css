@@ -45,3 +45,9 @@ body {
 @keyframes pulsate {
  50% { color: green; text-shadow: 0 -1px rgba(0,0,0,.3), 0 0 5px #ffd, 0 0 8px #fff; }
 }
+
+@media screen and (max-width: 800px) {
+.letters {
+	font-size: 80px;
+}
+}
