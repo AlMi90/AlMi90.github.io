@@ -22,12 +22,15 @@ var	objectLetters= {
 
 function main() {
 	var delay = 1;
-	addBlink( objectLetters.letters.$cursor );
-	for (var key in objectLetters.letters) {
-		delay++;
-		setDelay(objectLetters.letters, key, delay)
-	};
-	addBlink( objectLetters.letters );
+	setTimeout(function() {
+		addBlink( objectLetters.letters.$cursor );
+		for (var key in objectLetters.letters) {
+			delay++;
+			setDelay(objectLetters.letters, key, delay)
+		};
+		addBlink( objectLetters.letters );
+	}, 1000)
+
 }
 
 

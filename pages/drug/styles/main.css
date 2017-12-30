@@ -16,12 +16,12 @@ body {
 	background: url('../images/bg.jpg') no-repeat;
 	background-size: cover;
 	font-family: 'Lato', sans-serif;
-	font-weight: 300;
+	font-weight: 100;
+	color: white;
 }
 
 .letters__letter {
 	display: none;
-	color: black;
 }
 
 .letters__letter.show {
