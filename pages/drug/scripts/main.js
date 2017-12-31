@@ -49,17 +49,7 @@ function main() {
 
 function setDelay( array, key, delay ) {
 	setTimeout(function() {
-		if (key != '$g' && key != '$cursor') {
-			array[key].addClass('show');
-		}
-		else if (key == '$g') {
-			setTimeout(function() {
-				array[key].addClass('show');
-			}, 1000)
-		}
-		else if (key == '$cursor') {
-			array[key].addClass('blink');
-		}
+		array[key].addClass('show');
 	}, delay*1000);
 }
 function addBlink( obj ) {
