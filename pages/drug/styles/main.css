@@ -4,24 +4,37 @@ body {
 	overflow: hidden;
 	margin: 0;
 }
+.background {
+	position: absolute;
+	top: 0;
+	right: 0;
+	min-width: 100vw;
+}
 .letters {
+	position: absolute;
+	top: 0;
+	right: 0;
 	display: flex;
 	-webkit-align-items: center;
 	        align-items: center;
 	-webkit-justify-content: center;
 	        justify-content: center;
-	width: 100%;
-	height: 100%;
-	font-size: 200px;
-	background: url('../images/bg.jpg') no-repeat;
+	width: 100vw;
+	height: 100vh;
+	font-size: 400px;
 	background-size: cover;
 	font-family: 'Lato', sans-serif;
 	font-weight: 100;
 	color: white;
 }
 
+
+
 .letters__letter {
 	display: none;
+	font-family: 'Lato', sans-serif;
+	font-weight: 100;
+	transform: translate(0%, -60%);
 }
 
 .letters__letter.show {
@@ -37,17 +50,96 @@ body {
 }
 
 @keyframes blink {
-  50% { color: rgb(34, 34, 34); }
-  51% { color: rgba(34, 34, 34, 0); }
-  100% { color: rgba(34, 34, 34, 0); }
+	50% { color: rgb(34, 34, 34); }
+	51% { color: rgba(34, 34, 34, 0); }
+	100% { color: rgba(34, 34, 34, 0); }
 }
 
 @keyframes pulsate {
- 50% { color: green; text-shadow: 0 -1px rgba(0,0,0,.3), 0 0 5px #ffd, 0 0 8px #fff; }
+	50% { color: green; text-shadow: 0 -1px rgba(0,0,0,.3), 0 0 5px #ffd, 0 0 8px #fff; }
 }
 
 @media screen and (max-width: 800px) {
-.letters {
-	font-size: 80px;
+	.letters {
+		font-size: 80px;
+	}
 }
+
+@media screen and (max-width: 300px) {
+	.letters {
+		font-size: 40px;
+	}
+}
+
+@media screen and (max-width: 220px) {
+	.letters {
+		font-size: 30px;
+	}
+}
+
+.glitch {
+	margin: 0;
+	text-decoration: none;
+	color: #fff;
+}
+
+.glitch:before, .glitch:after {
+	display: block;
+	content: attr(data-text);
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	opacity: .8;
+}
+
+.glitch:after {
+	color: #f0f;
+	z-index: -2;
+}
+
+.glitch:before {
+	color: #0ff;
+	z-index: -1;
+}
+
+.glitch:before {
+	animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+}
+
+.glitch:after {
+	animation: glitch 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+}
+
+@keyframes glitch {
+	0% {
+		-webkit-transform: translate(0);
+		transform: translate(0);
+	}
+
+	20% {
+		-webkit-transform: translate(-5px, 5px);
+		transform: translate(-5px, 5px);
+	}
+
+	40% {
+		-webkit-transform: translate(-5px, -5px);
+		transform: translate(-5px, -5px);
+	}
+
+	60% {
+		-webkit-transform: translate(5px, 5px);
+		transform: translate(5px, 5px);
+	}
+
+	80% {
+		-webkit-transform: translate(5px, -5px);
+		transform: translate(5px, -5px);
+	}
+
+	to {
+		-webkit-transform: translate(0);
+		transform: translate(0);
+	}
 }

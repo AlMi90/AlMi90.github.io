@@ -30,6 +30,18 @@ function main() {
 		};
 		addBlink( objectLetters.letters );
 	}, 1000)
+	setTimeout(function() {
+		setInterval(function() {
+			for (var key in objectLetters.letters) {
+				objectLetters.letters[key].addClass('glitch');
+			}
+		}, 2000)
+		setInterval(function() {
+			for (var key in objectLetters.letters) {
+				objectLetters.letters[key].removeClass('glitch');
+			}
+		}, 3000)
+	}, 7000)
 
 }
 
