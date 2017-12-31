@@ -40,7 +40,7 @@ function main() {
 			for (var key in objectLetters.letters) {
 				objectLetters.letters[key].removeClass('glitch');
 			}
-		}, 3000)
+		}, 2300)
 	}, 7000)
 
 }
