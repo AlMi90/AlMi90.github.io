@@ -1,10 +1,14 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 
 'use strict';
-
+	$(function(){
+		$("#phone").mask("+375(99) 999-99-99");
+	});
 ymaps.ready(init);
 
 function init() {
+
+
 
 	var PRICE_FOR_KM = 0.5,	// Цена за 1 км
 		priceTrip,			// Цена итоговая
@@ -44,7 +48,18 @@ function init() {
 		// Элементы выбора автомобиля
 		$carChoice = $('.car__choice'),
 		// Переменная выбранного автомобиля
-		autoChoice = 'Седан';
+		autoChoice = 'Седан',
+		// Кнопка показа меню комментирования и выбора доп. опций
+		$moreButton = $('.more__url'),
+		// Меню комментариев и тд.
+		$moreMenu = $('.more__menu'),
+		// Элементы доп. опции
+		$moreOption = $('.more__option');
+
+	// При нажатии на кнопку омментариев и тд.
+	$($moreButton).on('click', function() {
+		$($moreMenu).toggleClass('active');
+	});
 
 	// При нажатии на выбор автомобиля
 	$($carChoice).on('click', function() {
@@ -52,6 +67,12 @@ function init() {
 		$(this).addClass('active')
 		autoChoice = $(this).attr('data-name')
 	});
+
+	// При нажатии на доп. опции
+	$($moreOption).on('click', function() {
+		$(this).toggleClass('active');
+	});
+
 
 	// При вводе в строку адреса
 	$($routeAddressesInput).on("input", function() {
@@ -209,6 +230,7 @@ function init() {
 
 	// Отображение длинны и времени маршрута
 	function tripData(length, time) {
+		console.log(1);
 		priceTrip = Math.ceil(PRICE_FOR_KM * length + PRICE_CAR);
 /*		$($tripDistans).html('Растояние: ~ ' + length + ' км');
 		$($tripTime).html('В пути: ~ ' + time + ' минут');*/
@@ -239,7 +261,6 @@ function init() {
 		showRoute(routeAddresses, function(length, time) {
 			tripData(length, time);
 		});
-
 	};
 
 	// При нажатии на сабмит проихойдет построение маршрута(если он есть),

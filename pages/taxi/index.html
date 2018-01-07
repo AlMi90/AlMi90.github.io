@@ -33,7 +33,11 @@
           </div>
           <ul class="address__hints hints"></ul>
         </div>
-        <div class="options">
+        <div class="inputs__person person">
+          <p class="person__part">Телефон:</p>
+          <input id="phone" placeholder="+375(__) ___-__-__" class="person__phone person__part">
+        </div>
+        <div class="inputs__options options">
           <div class="options__car car">
             <div data-name="Седан" class="car__choice car__choice-sedan active"><img src="images/sedan.png" class="car__img">
               <div class="car__name">Седан</div>
@@ -42,6 +46,40 @@
             <div data-name="Минивен" class="car__choice car__choice-minivan"><img src="images/minivan.png" class="car__img">
               <div class="car__name">Минивен</div>
               <div class="car__price">2 руб</div>
+            </div>
+          </div>
+          <div class="options__more more">
+            <div class="more__url">Комментарий и доп. опции</div>
+            <div class="more__menu">
+              <div class="more__option"><img src="/images/additional_1.svg" class="more__img more__part">
+                <p class="more__name more__part">Детское кресло</p>
+                <p class="more__price more__part">Бесплатно</p>
+              </div>
+              <div class="more__option"><img src="/images/additional_12.svg" class="more__img more__part">
+                <p class="more__name more__part">Квитанция об оплате</p>
+                <p class="more__price more__part">Бесплатно</p>
+              </div>
+              <div class="more__option"><img src="/images/additional_17.svg" class="more__img more__part">
+                <p class="more__name more__part">Молчаливый водитель</p>
+                <p class="more__price more__part">Бесплатно</p>
+              </div>
+              <div class="more__option"><img src="/images/additional_14.svg" class="more__img more__part">
+                <p class="more__name more__part">Wi-Fi</p>
+                <p class="more__price more__part">Бесплатно</p>
+              </div>
+              <div class="more__option"><img src="/images/additional_3.svg" class="more__img more__part">
+                <p class="more__name more__part">Поездка с животными</p>
+                <p class="more__price more__part">1 pуб</p>
+              </div>
+              <div class="more__option"><img src="/images/additional_7.svg" class="more__img more__part">
+                <p class="more__name more__part">Зарядка телефона</p>
+                <p class="more__price more__part">Бесплатно</p>
+              </div>
+              <div class="more__option"><img src="/images/additional_13.svg" class="more__img more__part">
+                <p class="more__name more__part">Курьерская доставка</p>
+                <p class="more__price more__part">Бесплатно</p>
+              </div>
+              <textarea rows="5" placeholder="Комментарий. Например: Хочу поехать в тишине." class="more__comment"></textarea>
             </div>
           </div>
         </div>
@@ -55,5 +93,6 @@
     <div id="YMapsID" class="form__map map"></div>
   </form>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.js" rel="stylesheet"></script>
   <script src="./scripts/main.js"></script>
 </body></html>
