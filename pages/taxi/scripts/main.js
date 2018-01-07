@@ -28,13 +28,11 @@ function init() {
 		submit = document.querySelector('.inputs__submit'),
 		// Переменная формы
 		form				= document.querySelector('#form'),
-
 		// Данные маршрута
 		// Адресс
 		$routeAddressesInput	= $('.address__input-address'),
 		// Дом
 		$routeHouseInput	= $('.address__input-house'),
-
 		// Переменная автозаполнения адресов
 		$suggestViewAdressHint,
 		// Активный маршрут
@@ -42,7 +40,18 @@ function init() {
 		// Переменные данных о маршруте растояние и время в пути
 		$tripDistans = $('.trip__length'),
 		$tripTime = $('.trip__time'),
-		$tripPrice = $('.trip__price');
+		$tripPrice = $('.trip__price'),
+		// Элементы выбора автомобиля
+		$carChoice = $('.car__choice'),
+		// Переменная выбранного автомобиля
+		autoChoice = 'Седан';
+
+	// При нажатии на выбор автомобиля
+	$($carChoice).on('click', function() {
+		$($carChoice).removeClass('active')
+		$(this).addClass('active')
+		autoChoice = $(this).attr('data-name')
+	});
 
 	// При вводе в строку адреса
 	$($routeAddressesInput).on("input", function() {

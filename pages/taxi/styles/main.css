@@ -596,7 +596,7 @@ template {
 .submit {
   border: none;
   background-color: rgba(255, 214, 11, 0.7);
-  width: 150px;
+  width: 100vw;
   height: 50px;
   font-size: 18px;
 }
@@ -609,6 +609,45 @@ template {
   font-size: 14px;
   font-weight: 300;
   color: #696969;
+}
+
+.car {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.car__choice {
+  width: 80px;
+  margin: 10px;
+  opacity: 0.2;
+  text-align: center;
+}
+
+.car__choice.active {
+  opacity: 1;
+}
+
+.car__choice:hover {
+  opacity: 1;
+}
+
+.car__img {
+  width: 40%;
+}
+
+.car__name {
+  font-weight: 400;
+}
+
+.car__price {
+  font-weight: 700;
 }
 
 *,
