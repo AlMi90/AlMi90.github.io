@@ -785,8 +785,23 @@ template {
   .more__menu {
     width: 100vw;
   }
+  .more__url {
+    margin-top: 20px;
+  }
   .options__mainPart {
     margin: 7.5px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .car__choice {
+    width: 70px;
+  }
+  .inputs {
+    padding: 10px;
+  }
+  .options__mainPart {
+    margin: 2.5px;
   }
 }
 
