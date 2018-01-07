@@ -5,6 +5,7 @@
 ymaps.ready(init);
 
 function init() {
+
 	var PRICE_FOR_KM = 0.5,	// Цена за 1 км
 		priceTrip,			// Цена итоговая
 		PRICE_CAR = 1.5;	// Цена посадки
@@ -23,12 +24,17 @@ function init() {
 		suggestView = [],
 		// Массив одной поисковой подсказки inputValidation()
 		suggestViewArr = [],
-
+		// Кнопка отправки формы (Заказ такси)
+		submit = document.querySelector('.inputs__submit'),
 		// Переменная формы
 		form				= document.querySelector('#form'),
-		// Переменная инпутов маршрута
+
+		// Данные маршрута
+		// Адресс
 		$routeAddressesInput	= $('.address__input-address'),
-		// Переменные данных о маршруте
+		// Дом
+		$routeHouseInput	= $('.address__input-house'),
+
 		// Переменная автозаполнения адресов
 		$suggestViewAdressHint,
 		// Активный маршрут
@@ -36,8 +42,7 @@ function init() {
 		// Переменные данных о маршруте растояние и время в пути
 		$tripDistans = $('.trip__length'),
 		$tripTime = $('.trip__time'),
-		$tripTrice = $('.trip__price');
-
+		$tripPrice = $('.trip__price');
 
 	// При вводе в строку адреса
 	$($routeAddressesInput).on("input", function() {
@@ -99,12 +104,20 @@ function init() {
 
 					if (checkForRouteEntry($routeAddressesInput)) {
 						routeingInMap();
+						submitActive();
 					}
 		})
 		}
 		// Если ничего не введено в строку адреса
 		else {
 			$(".hints__hint").remove();
+		}
+	});
+
+	$($routeHouseInput).on("input", function() {
+		if (checkForRouteEntry($routeAddressesInput)) {
+			routeingInMap();
+			submitActive();
 		}
 	});
 
@@ -118,7 +131,11 @@ function init() {
 		}
 		return result;
 	}
-
+	// Активация кнопки отправки формы (Заказать такси)
+	function submitActive() {
+		submit.disabled = false;
+		submit.classList.add('active');
+	}
 	// Перевод строки в объект
 	function stringToObj(obj) {
 		var string = $(obj).attr('data-address');
@@ -154,7 +171,9 @@ function init() {
 	function getRouteAddresses() {
 		var address = [];
 		for (var i = 0; i < $routeAddressesInput.length; i++) {
-			address[i]= $($routeAddressesInput[i]).attr('data-address');
+			console.log($($routeAddressesInput[i]).val());
+			address[i]= $($routeAddressesInput[i]).val() + ", " + $($routeHouseInput[i]).val() + ", Орша, Витебская область, Беларусь";
+			//address[i]= $($routeAddressesInput[i]).attr('data-address');
 		}
 		return address;
 	};
@@ -178,14 +197,15 @@ function init() {
 			}
 		);
 	};
+
 	// Отображение длинны и времени маршрута
 	function tripData(length, time) {
 		priceTrip = Math.ceil(PRICE_FOR_KM * length + PRICE_CAR);
 /*		$($tripDistans).html('Растояние: ~ ' + length + ' км');
 		$($tripTime).html('В пути: ~ ' + time + ' минут');*/
-		$($tripTrice).html('Стоимость поездки: ~ ' + priceTrip + ' руб.');
-		console.log(priceTrip, length, time);
+		$($tripPrice).html('стоимость ~ ' + priceTrip + ' руб.');
 	};
+
 	// Создаем экземпляр Якарты
 	myMap = new ymaps.Map('YMapsID', {
 		center: [54.510741, 30.429586],

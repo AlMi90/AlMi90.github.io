@@ -533,13 +533,12 @@ template {
 }
 
 .address__input:hover {
-  border: 1px solid rgba(128, 128, 128, 0.5);
   outline: 0;
   outline-offset: 0;
 }
 
 .address__input:active, .address__input:focus {
-  border: 2px solid #ffd60b;
+  border-bottom: 2px solid #ffd60b;
   outline: 0;
   outline-offset: 0;
 }
@@ -596,24 +595,20 @@ template {
 
 .submit {
   border: none;
-  background-color: #ffd60b;
+  background-color: rgba(255, 214, 11, 0.7);
   width: 150px;
   height: 50px;
   font-size: 18px;
 }
 
-.trip {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 50px;
+.submit .active {
+  background-color: #ffd60b;
 }
 
-.trip__data {
-  padding: 10px;
+.trip__price {
+  font-size: 14px;
+  font-weight: 300;
+  color: #696969;
 }
 
 *,

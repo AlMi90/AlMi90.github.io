@@ -21,7 +21,7 @@
           <div class="address__address"><i aria-hidden="true" class="address__icon fa fa-map-marker"></i>
             <input id="whence" placeholder="Откуда" autocomplete="off" class="address__input address__input-address">
             <input placeholder="Дом" autocomplete="off" class="address__input address__input-house address__input-other">
-            <input placeholder="Парадная" autocomplete="off" class="address__input address__input-front address__input-other">
+            <input placeholder="Пар." autocomplete="off" class="address__input address__input-front address__input-other">
           </div>
           <ul class="address__hints hints"></ul>
         </div>
@@ -29,17 +29,18 @@
           <div class="address__address"><i aria-hidden="true" class="address__icon fa fa-map-marker"></i>
             <input id="where" placeholder="Куда" autocomplete="off" class="address__input address__input-address">
             <input placeholder="Дом" autocomplete="off" class="address__input address__input-house address__input-other">
-            <input placeholder="Парадная" autocomplete="off" class="address__input address__input-front address__input-other">
+            <input placeholder="Пар." autocomplete="off" class="address__input address__input-front address__input-other">
           </div>
           <ul class="address__hints hints"></ul>
         </div>
         <div class="options">
           <div class="options__car car"></div>
         </div>
-        <div class="trip">
-          <div class="trip__price trip__data"></div>
-        </div>
-        <input value="Вызвать такси" type="submit" class="inputs__submit submit">
+        <button type="submit" disabled="true" class="inputs__submit submit">Вызвать такси 
+          <div class="trip">
+            <div class="trip__price"></div>
+          </div>
+        </button>
       </div>
     </div>
     <div id="YMapsID" class="form__map map"></div>
