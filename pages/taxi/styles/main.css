@@ -611,21 +611,24 @@ template {
   color: #696969;
 }
 
-.car {
+.options__main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 
+.options__mainPart {
+  margin: 10px;
+}
+
 .car__choice {
   width: 80px;
-  margin: 0 10px 10px;
   opacity: 0.2;
   text-align: center;
   cursor: pointer;
@@ -651,36 +654,27 @@ template {
   font-weight: 700;
 }
 
-.person {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 10px;
+.person__title {
+  margin: 0 0 5px;
 }
 
-.person__part {
-  margin: 0 5px;
-}
-
-.person input {
+.person__phone {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  width: -webkit-calc(78% - 20px);
-  width: calc(78% - 20px);
+  font-size: 15px;
+  width: 150px;
   height: 30px;
+  line-height: 30px;
   padding: 5px;
   border: 1px solid rgba(128, 128, 128, 0.5);
 }
 
-.person input:hover {
+.person__phone:hover {
   outline: 0;
   outline-offset: 0;
 }
 
-.person input:active, .person input:focus {
+.person__phone:active, .person__phone:focus {
   border-bottom: 2px solid #ffd60b;
   outline: 0;
   outline-offset: 0;
@@ -716,6 +710,7 @@ template {
 }
 
 .more__menu {
+  z-index: 150;
   display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -781,8 +776,17 @@ template {
 }
 
 @media screen and (max-width: 400px) {
+  .inputs {
+    padding: 10px;
+  }
+  .address__icon {
+    margin-right: 10px;
+  }
   .more__menu {
     width: 100vw;
+  }
+  .options__mainPart {
+    margin: 7.5px;
   }
 }
 
