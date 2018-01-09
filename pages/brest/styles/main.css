@@ -588,7 +588,7 @@ body {
 }
 
 .slider {
-  width: 100vw;
+  width: 100%;
   position: relative;
   height: 700px;
   background-color: #474747;
@@ -700,9 +700,6 @@ body {
   }
   .container {
     width: 980px;
-  }
-  .slick-dotted.slick-slider {
-    margin-bottom: 0;
   }
   .slider__img {
     right: 10px;
