@@ -126,7 +126,7 @@
   position: absolute;
   display: block;
   height: 200px;
-  width: 40px;
+  width: 20px;
   line-height: 0px;
   font-size: 0px;
   cursor: pointer;
@@ -172,7 +172,7 @@
 
 .slick-prev {
   z-index: 50;
-  left: -35px;
+  left: -60px;
 }
 
 [dir="rtl"] .slick-prev {
@@ -194,7 +194,7 @@
 
 .slick-next {
   z-index: 50;
-  right: -35px;
+  right: -60px;
 }
 
 [dir="rtl"] .slick-next {
