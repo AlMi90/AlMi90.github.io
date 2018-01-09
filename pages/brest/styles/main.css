@@ -452,6 +452,9 @@ template {
 .container {
   width: 1200px;
   margin: 0 auto;
+}
+
+.header, .slired, .footer {
   padding: 0 10px;
 }
 
@@ -688,6 +691,9 @@ body {
   }
   .container {
     width: 980px;
+  }
+  .slick-dotted.slick-slider {
+    margin: 0;
   }
   .slick-prev {
     left: -15px;
