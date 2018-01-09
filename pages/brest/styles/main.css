@@ -523,6 +523,22 @@ body {
   color: #E54646;
 }
 
+.nav__link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.nav__link:hover {
+  color: inherit;
+}
+
+.nav__link.active {
+  color: inherit;
+}
+
 .serch {
   z-index: 1;
   position: relative;
