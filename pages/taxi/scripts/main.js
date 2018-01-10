@@ -12,6 +12,8 @@ function init() {
 	var	$submit = $('.submit'),
 		$ver = $('.ver'),
 		$overlay = $('.form__overlay'),
+		$layer_map = $('.map'),
+		$layer_inputs = $('.inputs'),
 		$whence = $('#whence'),
 		$where = $('#where'),
 		$button_confirm = $('.ver__button-confirm'),
@@ -35,6 +37,9 @@ function init() {
 		$('.var__price').children('.var__value').html('~ ' + priceTrip + ' руб.');
 		$($overlay).addClass('active');
 		$($ver).addClass('active');
+		$($layer_map).addClass('filter-blur');
+		$($layer_inputs).addClass('filter-blur');
+		
 
 		function getTempAdress( obj ) {
 			temp_full_address = "";
@@ -55,6 +60,8 @@ function init() {
 		$( obj ).on('click', function() {
 			$($overlay).removeClass('active');
 			$($ver).removeClass('active');
+			$($layer_map).removeClass('filter-blur');
+			$($layer_inputs).removeClass('filter-blur');
 		})
 	}
 

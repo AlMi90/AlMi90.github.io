@@ -456,7 +456,12 @@ template {
   overflow: hidden;
 }
 
-.form__map {
+.filter-blur {
+  -webkit-filter: blur(15px);
+          filter: blur(15px);
+}
+
+.map {
   position: absolute;
   top: 0;
   left: 0;
@@ -802,10 +807,7 @@ template {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(128, 128, 128, 0.8);
   z-index: 900;
-  -webkit-filter: blur(80px);
-          filter: blur(80px);
 }
 
 .form__overlay.active {
@@ -817,8 +819,8 @@ template {
   position: absolute;
   top: -webkit-calc(50% - 250px);
   top: calc(50% - 250px);
-  left: -webkit-calc(50% - 250px);
-  left: calc(50% - 250px);
+  left: -webkit-calc(50% - 350px);
+  left: calc(50% - 350px);
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -827,9 +829,10 @@ template {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 500px;
+  width: 700px;
   overflow: hidden;
   display: none;
+  border-radius: 8px;
 }
 
 .ver.active {
@@ -859,22 +862,12 @@ template {
   border-bottom: 1px solid #ffd60b;
 }
 
-.ver__part-address {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: center;
-}
-
 .ver__options {
   display: none;
 }
 
 .ver__button {
+  border-radius: 8px;
   font-size: 18px;
   margin: 0 auto;
   width: 300px;
@@ -923,6 +916,10 @@ template {
     left: 0;
     width: 100vw;
     height: 100vh;
+    border-radius: 0px;
+  }
+  .ver__part-address .var__value {
+    text-align: right;
   }
 }
 
