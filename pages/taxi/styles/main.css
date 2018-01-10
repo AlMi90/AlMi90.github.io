@@ -776,8 +776,109 @@ template {
   resize: none;
 }
 
-.ver {
+.form__overlay {
   display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(128, 128, 128, 0.8);
+  z-index: 900;
+}
+
+.form__overlay.active {
+  display: block;
+}
+
+.ver {
+  z-index: 1000;
+  position: absolute;
+  top: -webkit-calc(50% - 250px);
+  top: calc(50% - 250px);
+  left: -webkit-calc(50% - 250px);
+  left: calc(50% - 250px);
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background-color: #FFF;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 500px;
+  overflow: hidden;
+  display: none;
+}
+
+.ver.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.ver__head {
+  font-size: 24px;
+  line-height: 55px;
+  color: #1A1A1A;
+  text-align: center;
+  background: rgba(255, 214, 11, 0.8);
+}
+
+.ver__part {
+  font-size: 18px;
+  line-height: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px 10px;
+  border-bottom: 1px solid #ffd60b;
+}
+
+.ver__part-address {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.ver__options {
+  display: none;
+}
+
+.ver__button {
+  font-size: 18px;
+  margin: 0 auto;
+  width: 300px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.ver__button-confirm {
+  margin-top: 15px;
+  background-color: rgba(255, 214, 11, 0.8);
+}
+
+.ver__button-confirm:hover {
+  background-color: #ffd60b;
+}
+
+.ver__button-cancel {
+  background-color: rgba(255, 0, 0, 0.7);
+}
+
+.ver__button-cancel:hover {
+  background-color: red;
 }
 
 @media screen and (max-width: 400px) {
@@ -795,6 +896,12 @@ template {
   }
   .options__mainPart {
     margin: 7.5px;
+  }
+  .ver {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
   }
 }
 
