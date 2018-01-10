@@ -599,6 +599,7 @@ template {
   width: 100vw;
   height: 50px;
   font-size: 18px;
+  cursor: pointer;
 }
 
 .submit .active {
@@ -773,6 +774,10 @@ template {
 .more__comment {
   margin-top: 10px;
   resize: none;
+}
+
+.ver {
+  display: none;
 }
 
 @media screen and (max-width: 400px) {

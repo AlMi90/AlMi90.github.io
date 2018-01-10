@@ -1,18 +1,54 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 
 'use strict';
-	$(function(){
-		$("#phone").mask("+375(99) 999-99-99");
-	});
+
+
+
 ymaps.ready(init);
 
 function init() {
+	// Формирование цены
+		// Цена за 1 км
+	var	price_for_km = 0.5,
+		// Цена посадки
+		price_car = 1.5,
+		// Длинна маршрута
+		lengthRoute = 0,
+		// Время в пути
+		timeRoute = 0;
 
 
+	// Телефон
 
-	var PRICE_FOR_KM = 0.5,	// Цена за 1 км
-		priceTrip,			// Цена итоговая
-		PRICE_CAR = 1.5;	// Цена посадки
+		// Поле ввода телефонного номера
+	var	$inputForMask = $('#phone'),
+		// Валидность введенного номера
+		phoveValid = false;
+
+	// Применение маски к полю ввода телефона
+	$($inputForMask).inputmask({
+		mask : "+375(99)999-99-99",
+		// При полном вводе
+		oncomplete : function() {
+			phoveValid = true;
+			if (checkForRouteEntry($routeAddressesInput)) {
+				submitActive();
+			}
+		},
+		// При не полном вводе
+		onincomplete : function() {
+			phoveValid= false;
+			submitUnActive();
+		},
+		// При удалении из номера одного и более значений
+		canClearPosition : function() {
+			phoveValid= false;
+			submitUnActive();
+		}
+	});
+	// Конец - Телефон
+
+
 
 		// Переменная содержащая форму ввода маршрута
 	var	form,
@@ -54,7 +90,9 @@ function init() {
 		// Меню комментариев и тд.
 		$moreMenu = $('.more__menu'),
 		// Элементы доп. опции
-		$moreOption = $('.more__option');
+		$moreOption = $('.more__option'),
+		// Цена итоговая
+		priceTrip;
 
 	// При нажатии на кнопку омментариев и тд.
 	$($moreButton).on('click', function() {
@@ -63,14 +101,50 @@ function init() {
 
 	// При нажатии на выбор автомобиля
 	$($carChoice).on('click', function() {
-		$($carChoice).removeClass('active')
-		$(this).addClass('active')
-		autoChoice = $(this).attr('data-name')
+		if (!$(this).hasClass('active')) {
+			$($carChoice).removeClass('active')
+			$(this).addClass('active')
+			autoChoice = $(this).attr('data-name')
+
+			// От того какая машина выбрана формируется цена посадки
+			if ( autoChoice == 'Седан' ) {
+				price_car -= .5;
+
+			}
+			else if ( autoChoice == 'Минивен' ) {
+				price_car += .5;
+			}
+		}
+		// Если маршрут уже введен, происходит пересчет цены маршрута
+		if (checkForRouteEntry($routeAddressesInput)) {
+			tripData(lengthRoute, timeRoute);
+		}
 	});
 
 	// При нажатии на доп. опции
 	$($moreOption).on('click', function() {
 		$(this).toggleClass('active');
+		function checkPrice( obj, sign) {
+			$( obj ) .attr('data-price', function(index, value) {
+				if ( value != undefined ) {
+					price_car += parseInt( value ) * parseInt(sign);
+				}
+			});
+		}
+		if ($(this).hasClass('active')) {
+			checkPrice( this, '1');
+			// Если маршрут уже введен, происходит пересчет цены маршрута
+			if (checkForRouteEntry($routeAddressesInput)) {
+				tripData(lengthRoute, timeRoute);
+			}
+		}
+		else {
+			checkPrice( this, '-1');
+			// Если маршрут уже введен, происходит пересчет цены маршрута
+			if (checkForRouteEntry($routeAddressesInput)) {
+				tripData(lengthRoute, timeRoute);
+			}
+		}
 	});
 
 
@@ -134,7 +208,9 @@ function init() {
 
 					if (checkForRouteEntry($routeAddressesInput)) {
 						routeingInMap();
-						submitActive();
+						if (phoveValid) {
+							submitActive();
+						}
 					}
 		})
 		}
@@ -144,28 +220,38 @@ function init() {
 		}
 	});
 
+
+
+	// При вводе номера дома прокладывается адрес
 	$($routeHouseInput).on("input", function() {
 		if (checkForRouteEntry($routeAddressesInput)) {
 			routeingInMap();
-			submitActive();
+			if (phoveValid) {
+				submitActive();
+			}
 		}
 	});
 
-	// проверка введения всего маршрута
+	// Проверка введения всего маршрута
 	function checkForRouteEntry($inputs){
-		var result = true;
 		for (var i = 0; i < $inputs.length; i++) {
 			if($($inputs[i]).attr('data-address') == undefined) {
-				result = false;
+				return false;
 			}
 		}
-		return result;
+		return true;
 	}
 	// Активация кнопки отправки формы (Заказать такси)
 	function submitActive() {
 		submit.disabled = false;
 		submit.classList.add('active');
 	}
+
+	function submitUnActive() {
+		submit.disabled = true;
+		submit.classList.remove('active');
+	}
+
 	// Перевод строки в объект
 	function stringToObj(obj) {
 		var string = $(obj).attr('data-address');
@@ -201,7 +287,6 @@ function init() {
 	function getRouteAddresses() {
 		var address = [];
 		for (var i = 0; i < $routeAddressesInput.length; i++) {
-			console.log($($routeAddressesInput[i]).val());
 			address[i]= $($routeAddressesInput[i]).val() + ", " + $($routeHouseInput[i]).val() + ", Орша, Витебская область, Беларусь";
 			//address[i]= $($routeAddressesInput[i]).attr('data-address');
 		}
@@ -230,8 +315,8 @@ function init() {
 
 	// Отображение длинны и времени маршрута
 	function tripData(length, time) {
-		console.log(1);
-		priceTrip = Math.ceil(PRICE_FOR_KM * length + PRICE_CAR);
+		priceTrip = Math.ceil(price_for_km * length) + price_car;
+		console.log(price_for_km*length, price_car);
 /*		$($tripDistans).html('Растояние: ~ ' + length + ' км');
 		$($tripTime).html('В пути: ~ ' + time + ' минут');*/
 		$($tripPrice).html('стоимость ~ ' + priceTrip + ' руб.');
@@ -251,7 +336,13 @@ function init() {
 		strokeWidth: 4,
 		geodesic: true
 	});
-
+	// Сохранение данны маршрута
+	function saveDataRoute(length, time) {
+		// Длинна маршрута
+		lengthRoute = length,
+		// Время в пути
+		timeRoute = time;
+	}
 	// Показ маршрута на карте
 	function routeingInMap() {
 		// Получаем адреса для маршрута
@@ -260,6 +351,7 @@ function init() {
 		// Отображаем маршрут на карте
 		showRoute(routeAddresses, function(length, time) {
 			tripData(length, time);
+			saveDataRoute(length, time);
 		});
 	};
 
@@ -267,6 +359,7 @@ function init() {
 	// с помощью функции showRoute(), в которую передается массив где:
 	// [0] - точка отправления, [>0] - точк(а/и) направления.
 	form.onsubmit = function () {
+		e.preventDefault()
 		routeingInMap()
 	};
 }
