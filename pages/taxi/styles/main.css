@@ -453,28 +453,43 @@ template {
   position: relative;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+.ymaps-2-1-60-copyrights-pane {
+  display: none;
 }
 
 .filter-blur {
-  -webkit-filter: blur(15px);
-          filter: blur(15px);
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
 }
 
 .map {
-  position: absolute;
-  top: 0;
-  left: 0;
+  -webkit-box-flex: 100;
+      -ms-flex-positive: 100;
+          flex-grow: 100;
   width: 100vw;
-  height: 100vh;
+  z-index: 100;
 }
 
 .inputs {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 50;
-  width: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  width: 100vw;
   margin: 0 auto;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.9);
@@ -571,8 +586,7 @@ template {
   position: absolute;
   top: 100%;
   right: 0px;
-  width: -webkit-calc(100% - 35px);
-  width: calc(100% - 35px);
+  width: 100%;
   margin: 0;
   padding: 0;
   background-color: white;
@@ -902,8 +916,11 @@ template {
   .address__icon {
     margin-right: 10px;
   }
+  .more {
+    width: 100%;
+  }
   .more__menu {
-    width: 100vw;
+    width: 100%;
   }
   .more__url {
     margin-top: 20px;
