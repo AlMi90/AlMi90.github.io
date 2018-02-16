@@ -14,7 +14,9 @@ window.onload = function (ev) {
   $(".hamburger-button").click(function() {
     $(this).toggleClass("active");
     $(".nav").toggleClass("active");
-  })
+  });
+  var $preloader = $('.preloader');
+  $preloader.detach()
 };
 
 

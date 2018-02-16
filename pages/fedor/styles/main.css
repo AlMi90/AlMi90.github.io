@@ -1,4 +1,44 @@
 @import url("https://fonts.googleapis.com/css?family=Ubuntu:400,500");
+.preloader {
+  z-index: 100000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+}
+
+@-webkit-keyframes loader {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes loader {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.preloader__spiner {
+  font-size: 50px;
+  position: absolute;
+  top: -webkit-calc(50% - 25px);
+  top: calc(50% - 25px);
+  left: -webkit-calc(50% - 25px);
+  left: calc(50% - 25px);
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  color: white;
+  -webkit-animation: loader 1s infinite linear;
+          animation: loader 1s infinite linear;
+}
+
 .hamburger-button {
   display: none;
 }
