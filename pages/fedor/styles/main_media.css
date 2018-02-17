@@ -76,6 +76,9 @@
     font-size: 16px;
     color: #f6f5c5;
   }
+  .sliders__prev, .sliders__next {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 450px) {
