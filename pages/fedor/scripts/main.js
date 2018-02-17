@@ -15,8 +15,33 @@ window.onload = function (ev) {
     $(this).toggleClass("active");
     $(".nav").toggleClass("active");
   });
+
+
+  var $header = $('.header'),
+      $upBtn = $('.up');
+  console.log( $.scrollTo );
+  $upBtn.on('click', function () {
+    $(window).scrollTo( {top:'0px', left:'0px'} ,  500)
+  });
+  if ( window.pageYOffset > 0 ) {
+    $header.addClass('scroll');
+  }
+  window.addEventListener('scroll', function(e) {
+    if ( this.pageYOffset > 0 ) {
+      $header.addClass('scroll');
+    } else  {
+      $header.removeClass('scroll');
+    }
+
+    if( this.pageYOffset > 100 ) {
+      $upBtn.addClass('active');
+    } else {
+      $upBtn.removeClass('active');
+    }
+  });
+
   var $preloader = $('.preloader');
-  $preloader.detach()
+  $preloader.detach();
 };
 
 
