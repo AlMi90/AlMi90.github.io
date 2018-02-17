@@ -19,7 +19,6 @@ window.onload = function (ev) {
 
   var $header = $('.header'),
       $upBtn = $('.up');
-  console.log( $.scrollTo );
   $upBtn.on('click', function () {
     $(window).scrollTo( {top:'0px', left:'0px'} ,  500)
   });
