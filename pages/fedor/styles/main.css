@@ -348,11 +348,15 @@
   height: 30px;
   line-height: 30px;
   background: white;
-  border: 1px solid #ffc06f;
   position: absolute;
   right: 0;
   bottom: 10px;
   text-decoration: none;
+  border: 2px solid white;
+}
+
+.biography-text__more:hover {
+  border: 2px solid #ffc06f;
 }
 
 .gallery {
