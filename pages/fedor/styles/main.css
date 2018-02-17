@@ -114,8 +114,8 @@
 }
 
 .header.scroll .logo__footer-decor {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   background: #f6f5c5;
 }
 
@@ -126,7 +126,7 @@
 }
 
 .header.scroll .logo__footer-text {
-  font-size: 16px;
+  font-size: 12px;
   color: #f6f5c5;
 }
 
@@ -144,7 +144,7 @@
 }
 
 .logo__header {
-  font-size: 50px;
+  font-size: 60px;
   line-height: 50px;
   color: #ffc06f;
   -webkit-transition: .5s;

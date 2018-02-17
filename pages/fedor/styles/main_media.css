@@ -63,8 +63,8 @@
     line-height: 30px;
   }
   .header .logo__footer-decor {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     background: #f6f5c5;
   }
   .header .logo__footer {
@@ -73,7 +73,7 @@
             align-items: center;
   }
   .header .logo__footer-text {
-    font-size: 16px;
+    font-size: 12px;
     color: #f6f5c5;
   }
   .sliders__prev, .sliders__next {
