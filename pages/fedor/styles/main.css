@@ -276,6 +276,10 @@
   margin: 0 15px;
 }
 
+.biography__photo {
+  font-size: 0;
+}
+
 .biography__main {
   background: #666666;
 }
