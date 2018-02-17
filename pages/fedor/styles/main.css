@@ -207,6 +207,7 @@
   overflow: hidden;
   position: relative;
   width: 100vw;
+  padding-top: 70px;
 }
 
 .sliders__carousel {
