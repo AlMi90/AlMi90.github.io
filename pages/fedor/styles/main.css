@@ -164,6 +164,8 @@
 .logo__footer-text {
   font-size: 28px;
   color: #f6f5c5;
+  -webkit-transition: .5s;
+  transition: .5s;
 }
 
 .nav {
