@@ -9,21 +9,6 @@ window.onload = function (ev) {
     removalDelay: 100
   });
 
-  var navBtn = $('.nav__part');
-
-  $(navBtn).on('click', function (e) {
-    var dataScroll = e.currentTarget.getAttribute('data-scroll');
-    if ( dataScroll ) {
-      var scrollTo = document.querySelector(dataScroll);
-      if ( scrollTo ) {
-        e.preventDefault();
-        $(window).scrollTo( {top: scrollTo.offsetTop - 70 + 'px', left:'0px'} ,  500)
-      };
-    };
-  });
-
-
-
   $(".hamburger-button").click(function() {
     $(this).toggleClass("active");
     $(".nav").toggleClass("active");
