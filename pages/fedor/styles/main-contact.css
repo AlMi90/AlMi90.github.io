@@ -246,14 +246,14 @@
   font-size: 30px;
   line-height: 30px;
   color: #f4b96e;
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 15px;
 }
 
 .contact__email-contact {
   font-size: 18px;
   line-height: 18px;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .footer {
