@@ -454,6 +454,68 @@ function startProgressAnimation(progressBars, type) {
   }
 }
 
+function resetSVG(progressBars) {
+  var _iteratorNormalCompletion2 = true;
+  var _didIteratorError2 = false;
+  var _iteratorError2 = undefined;
+
+  try {
+    for (var _iterator2 = progressBars[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+      var path = _step2.value;
+
+      var progress = path.dataset.progress;
+      var fullLengthSVGPath = path.getTotalLength();
+      path.style.strokeDasharray = fullLengthSVGPath;
+      path.style.strokeDashoffset = fullLengthSVGPath;
+      //path.style.strokeDashoffset = fullLengthSVGPath/100*(100-progress);
+    }
+  } catch (err) {
+    _didIteratorError2 = true;
+    _iteratorError2 = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion2 && _iterator2.return) {
+        _iterator2.return();
+      }
+    } finally {
+      if (_didIteratorError2) {
+        throw _iteratorError2;
+      }
+    }
+  }
+}
+
+function onSVG(progressBars) {
+  var _iteratorNormalCompletion3 = true;
+  var _didIteratorError3 = false;
+  var _iteratorError3 = undefined;
+
+  try {
+    for (var _iterator3 = progressBars[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+      var path = _step3.value;
+
+      var progress = path.dataset.progress;
+      var fullLengthSVGPath = path.getTotalLength();
+      path.style.transition = 'stroke-dashoffset 1.5s';
+      // path.style.strokeDasharray = -fullLengthSVGPath*2;
+      path.style.strokeDashoffset = fullLengthSVGPath * 2;
+    }
+  } catch (err) {
+    _didIteratorError3 = true;
+    _iteratorError3 = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion3 && _iterator3.return) {
+        _iterator3.return();
+      }
+    } finally {
+      if (_didIteratorError3) {
+        throw _iteratorError3;
+      }
+    }
+  }
+}
+
 function startFunctionAnimationOnVisibleObject(object, functionAnimation, param, visiblePercentage) {
   var checkVisibleThisContainer = function checkVisibleThisContainer() {
     var winHeight = window.innerHeight;
@@ -480,40 +542,40 @@ function startFunctionAnimationOnVisibleObject(object, functionAnimation, param,
 
 function skillClickListener(skills) {
   var involves = document.querySelectorAll('.software-skills__involve');
-  var _iteratorNormalCompletion2 = true;
-  var _didIteratorError2 = false;
-  var _iteratorError2 = undefined;
+  var _iteratorNormalCompletion4 = true;
+  var _didIteratorError4 = false;
+  var _iteratorError4 = undefined;
 
   try {
-    for (var _iterator2 = skills[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-      var skill = _step2.value;
+    for (var _iterator4 = skills[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+      var skill = _step4.value;
 
       skill.addEventListener('click', function (e) {
         var involveList = e.currentTarget.querySelector('.software-skills__involve');
         var SVGsWithAnimationInThis = e.currentTarget.querySelectorAll('.line-progress-bar__container [data-progress]');
         if (involveList) {
           if (involveList.classList.contains('hidden')) {
-            var _iteratorNormalCompletion3 = true;
-            var _didIteratorError3 = false;
-            var _iteratorError3 = undefined;
+            var _iteratorNormalCompletion5 = true;
+            var _didIteratorError5 = false;
+            var _iteratorError5 = undefined;
 
             try {
-              for (var _iterator3 = involves[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-                var involve = _step3.value;
+              for (var _iterator5 = involves[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+                var involve = _step5.value;
 
                 involve.classList.add('hidden');
               }
             } catch (err) {
-              _didIteratorError3 = true;
-              _iteratorError3 = err;
+              _didIteratorError5 = true;
+              _iteratorError5 = err;
             } finally {
               try {
-                if (!_iteratorNormalCompletion3 && _iterator3.return) {
-                  _iterator3.return();
+                if (!_iteratorNormalCompletion5 && _iterator5.return) {
+                  _iterator5.return();
                 }
               } finally {
-                if (_didIteratorError3) {
-                  throw _iteratorError3;
+                if (_didIteratorError5) {
+                  throw _iteratorError5;
                 }
               }
             }
@@ -521,27 +583,27 @@ function skillClickListener(skills) {
             involveList.classList.remove('hidden');
             startProgressAnimation(SVGsWithAnimationInThis, 'line');
           } else {
-            var _iteratorNormalCompletion4 = true;
-            var _didIteratorError4 = false;
-            var _iteratorError4 = undefined;
+            var _iteratorNormalCompletion6 = true;
+            var _didIteratorError6 = false;
+            var _iteratorError6 = undefined;
 
             try {
-              for (var _iterator4 = involves[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-                var _involve = _step4.value;
+              for (var _iterator6 = involves[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+                var _involve = _step6.value;
 
                 _involve.classList.add('hidden');
               }
             } catch (err) {
-              _didIteratorError4 = true;
-              _iteratorError4 = err;
+              _didIteratorError6 = true;
+              _iteratorError6 = err;
             } finally {
               try {
-                if (!_iteratorNormalCompletion4 && _iterator4.return) {
-                  _iterator4.return();
+                if (!_iteratorNormalCompletion6 && _iterator6.return) {
+                  _iterator6.return();
                 }
               } finally {
-                if (_didIteratorError4) {
-                  throw _iteratorError4;
+                if (_didIteratorError6) {
+                  throw _iteratorError6;
                 }
               }
             }
@@ -550,16 +612,16 @@ function skillClickListener(skills) {
       });
     }
   } catch (err) {
-    _didIteratorError2 = true;
-    _iteratorError2 = err;
+    _didIteratorError4 = true;
+    _iteratorError4 = err;
   } finally {
     try {
-      if (!_iteratorNormalCompletion2 && _iterator2.return) {
-        _iterator2.return();
+      if (!_iteratorNormalCompletion4 && _iterator4.return) {
+        _iterator4.return();
       }
     } finally {
-      if (_didIteratorError2) {
-        throw _iteratorError2;
+      if (_didIteratorError4) {
+        throw _iteratorError4;
       }
     }
   }
@@ -572,6 +634,10 @@ window.onload = function () {
   var pointers = document.querySelectorAll('[data-name = "lines-to__line"]');
   var pointersId = document.querySelectorAll('#lines-to__line');
 
+  var allSVGpath = document.querySelectorAll('#svg circle, #svg rect, #svg line, #svg path, #svg ellipse, #svg polyline');
+
+  resetSVG(allSVGpath);
+  onSVG(allSVGpath);
   skillClickListener(skills);
 
   startFunctionAnimationOnVisibleObject(skillsList, startProgressAnimation, circleProgressBars);
