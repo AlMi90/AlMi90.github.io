@@ -243,16 +243,16 @@
 }
 
 .contact__name-contact {
-  font-size: 61px;
-  line-height: 61px;
+  font-size: 30px;
+  line-height: 30px;
   color: #f4b96e;
   font-weight: 700;
   margin-bottom: 15px;
 }
 
 .contact__email-contact {
-  font-size: 31px;
-  line-height: 31px;
+  font-size: 18px;
+  line-height: 18px;
   font-weight: 700;
 }
 

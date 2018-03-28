@@ -52,6 +52,7 @@ window.onload = function (ev) {
     }
   });
   var $preloader = $('.preloader');
+
   $preloader.detach();
   removeOverflowForPreloader();
 };
