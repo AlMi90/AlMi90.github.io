@@ -417,12 +417,6 @@ var _detectBrowser = require('detect-browser');
 
 var browser = (0, _detectBrowser.detect)();
 
-// handle the case where we don't detect the browser
-// if (browser) {
-//   console.log(browser.name);
-//   console.log(browser.version);
-// }
-
 function startProgressAnimation(progressBars, type) {
   var _iteratorNormalCompletion = true;
   var _didIteratorError = false;
@@ -433,7 +427,6 @@ function startProgressAnimation(progressBars, type) {
       var path = _step.value;
 
       var progress = path.dataset.progress;
-      // let fullLengthSVGPath = path.getTotalLength();
       var fullLengthSVGPath = type === 'circle' ? 235.2 : 300;
 
       path.style.strokeDashoffset = fullLengthSVGPath / 100 * (100 - progress);
@@ -463,11 +456,9 @@ function resetSVG(progressBars) {
     for (var _iterator2 = progressBars[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
       var path = _step2.value;
 
-      var progress = path.dataset.progress;
       var fullLengthSVGPath = path.getTotalLength();
       path.style.strokeDasharray = fullLengthSVGPath;
       path.style.strokeDashoffset = fullLengthSVGPath;
-      //path.style.strokeDashoffset = fullLengthSVGPath/100*(100-progress);
     }
   } catch (err) {
     _didIteratorError2 = true;
@@ -497,7 +488,6 @@ function onSVG(progressBars) {
       var progress = path.dataset.progress;
       var fullLengthSVGPath = path.getTotalLength();
       path.style.transition = 'stroke-dashoffset 1.5s';
-      // path.style.strokeDasharray = -fullLengthSVGPath*2;
       path.style.strokeDashoffset = fullLengthSVGPath * 2;
     }
   } catch (err) {
@@ -627,17 +617,24 @@ function skillClickListener(skills) {
   }
 }
 
+function shiwWarning() {
+  var warning = document.querySelector('.warning');
+  warning.style.display = 'block';
+}
 window.onload = function () {
   var circleProgressBars = document.querySelectorAll('.circle-progress-bar__front');
   var skills = document.querySelectorAll('.software-skills__skill');
   var skillsList = document.querySelector('.software-skills__list');
-  var pointers = document.querySelectorAll('[data-name = "lines-to__line"]');
-  var pointersId = document.querySelectorAll('#lines-to__line');
 
-  var allSVGpath = document.querySelectorAll('#svg circle, #svg rect, #svg line, #svg path, #svg ellipse, #svg polyline');
+  if (browser.name === 'chrome') {
+    var allSVGpath = document.querySelectorAll('#svg circle, #svg rect, #svg line, #svg path, #svg ellipse, #svg polyline');
 
-  resetSVG(allSVGpath);
-  onSVG(allSVGpath);
+    resetSVG(allSVGpath);
+    onSVG(allSVGpath);
+  } else {
+    shiwWarning();
+  }
+
   skillClickListener(skills);
 
   startFunctionAnimationOnVisibleObject(skillsList, startProgressAnimation, circleProgressBars);
