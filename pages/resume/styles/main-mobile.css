@@ -513,23 +513,8 @@ body {
 }
 
 .resume__wrap {
-  width: 1100px;
+  max-width: 600px;
   margin: 0 auto;
-}
-
-.resume__wrap-top, .resume__wrap-bottom {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.resume__wrap-combine {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -540,6 +525,7 @@ body {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  padding: 0 15px;
 }
 
 .work-place, .contact__item, .study-place {
@@ -559,10 +545,8 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-
-.container {
-  width: 300px;
+  max-width: 600px;
+  margin-bottom: 60px;
 }
 
 .icon {
@@ -837,6 +821,14 @@ body {
   margin: 80px 0 60px;
 }
 
+.contact__container {
+  padding: 0;
+}
+
+.software-skills__skill {
+  margin-right: 20px;
+}
+
 *,
 *:before,
 *:after {
@@ -844,4 +836,4 @@ body {
   box-sizing: border-box;
 }
 
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=main-mobile.css.map */

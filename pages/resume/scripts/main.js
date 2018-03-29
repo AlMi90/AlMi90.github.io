@@ -413,10 +413,9 @@ process.umask = function() { return 0; };
 },{}],4:[function(require,module,exports){
 'use strict';
 
-var _detectBrowser = require('detect-browser');
-
-var browser = (0, _detectBrowser.detect)();
-
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 function startProgressAnimation(progressBars, type) {
   var _iteratorNormalCompletion = true;
   var _didIteratorError = false;
@@ -447,65 +446,6 @@ function startProgressAnimation(progressBars, type) {
   }
 }
 
-function resetSVG(progressBars) {
-  var _iteratorNormalCompletion2 = true;
-  var _didIteratorError2 = false;
-  var _iteratorError2 = undefined;
-
-  try {
-    for (var _iterator2 = progressBars[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-      var path = _step2.value;
-
-      var fullLengthSVGPath = path.getTotalLength();
-      path.style.strokeDasharray = fullLengthSVGPath;
-      path.style.strokeDashoffset = fullLengthSVGPath;
-    }
-  } catch (err) {
-    _didIteratorError2 = true;
-    _iteratorError2 = err;
-  } finally {
-    try {
-      if (!_iteratorNormalCompletion2 && _iterator2.return) {
-        _iterator2.return();
-      }
-    } finally {
-      if (_didIteratorError2) {
-        throw _iteratorError2;
-      }
-    }
-  }
-}
-
-function onSVG(progressBars) {
-  var _iteratorNormalCompletion3 = true;
-  var _didIteratorError3 = false;
-  var _iteratorError3 = undefined;
-
-  try {
-    for (var _iterator3 = progressBars[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-      var path = _step3.value;
-
-      var progress = path.dataset.progress;
-      var fullLengthSVGPath = path.getTotalLength();
-      path.style.transition = 'stroke-dashoffset 1.5s';
-      path.style.strokeDashoffset = fullLengthSVGPath * 2;
-    }
-  } catch (err) {
-    _didIteratorError3 = true;
-    _iteratorError3 = err;
-  } finally {
-    try {
-      if (!_iteratorNormalCompletion3 && _iterator3.return) {
-        _iterator3.return();
-      }
-    } finally {
-      if (_didIteratorError3) {
-        throw _iteratorError3;
-      }
-    }
-  }
-}
-
 function startFunctionAnimationOnVisibleObject(object, functionAnimation, param, visiblePercentage) {
   var checkVisibleThisContainer = function checkVisibleThisContainer() {
     var winHeight = window.innerHeight;
@@ -530,70 +470,83 @@ function startFunctionAnimationOnVisibleObject(object, functionAnimation, param,
   checkVisibleThisContainer();
 }
 
+exports.startProgressAnimation = startProgressAnimation;
+exports.startFunctionAnimationOnVisibleObject = startFunctionAnimationOnVisibleObject;
+
+},{}],5:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.skillClickListener = undefined;
+
+var _animations = require('./animations');
+
 function skillClickListener(skills) {
   var involves = document.querySelectorAll('.software-skills__involve');
-  var _iteratorNormalCompletion4 = true;
-  var _didIteratorError4 = false;
-  var _iteratorError4 = undefined;
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
 
   try {
-    for (var _iterator4 = skills[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-      var skill = _step4.value;
+    for (var _iterator = skills[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      var skill = _step.value;
 
       skill.addEventListener('click', function (e) {
         var involveList = e.currentTarget.querySelector('.software-skills__involve');
         var SVGsWithAnimationInThis = e.currentTarget.querySelectorAll('.line-progress-bar__container [data-progress]');
         if (involveList) {
           if (involveList.classList.contains('hidden')) {
-            var _iteratorNormalCompletion5 = true;
-            var _didIteratorError5 = false;
-            var _iteratorError5 = undefined;
+            var _iteratorNormalCompletion2 = true;
+            var _didIteratorError2 = false;
+            var _iteratorError2 = undefined;
 
             try {
-              for (var _iterator5 = involves[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
-                var involve = _step5.value;
+              for (var _iterator2 = involves[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                var involve = _step2.value;
 
                 involve.classList.add('hidden');
               }
             } catch (err) {
-              _didIteratorError5 = true;
-              _iteratorError5 = err;
+              _didIteratorError2 = true;
+              _iteratorError2 = err;
             } finally {
               try {
-                if (!_iteratorNormalCompletion5 && _iterator5.return) {
-                  _iterator5.return();
+                if (!_iteratorNormalCompletion2 && _iterator2.return) {
+                  _iterator2.return();
                 }
               } finally {
-                if (_didIteratorError5) {
-                  throw _iteratorError5;
+                if (_didIteratorError2) {
+                  throw _iteratorError2;
                 }
               }
             }
 
             involveList.classList.remove('hidden');
-            startProgressAnimation(SVGsWithAnimationInThis, 'line');
+            (0, _animations.startProgressAnimation)(SVGsWithAnimationInThis, 'line');
           } else {
-            var _iteratorNormalCompletion6 = true;
-            var _didIteratorError6 = false;
-            var _iteratorError6 = undefined;
+            var _iteratorNormalCompletion3 = true;
+            var _didIteratorError3 = false;
+            var _iteratorError3 = undefined;
 
             try {
-              for (var _iterator6 = involves[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
-                var _involve = _step6.value;
+              for (var _iterator3 = involves[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+                var _involve = _step3.value;
 
                 _involve.classList.add('hidden');
               }
             } catch (err) {
-              _didIteratorError6 = true;
-              _iteratorError6 = err;
+              _didIteratorError3 = true;
+              _iteratorError3 = err;
             } finally {
               try {
-                if (!_iteratorNormalCompletion6 && _iterator6.return) {
-                  _iterator6.return();
+                if (!_iteratorNormalCompletion3 && _iterator3.return) {
+                  _iterator3.return();
                 }
               } finally {
-                if (_didIteratorError6) {
-                  throw _iteratorError6;
+                if (_didIteratorError3) {
+                  throw _iteratorError3;
                 }
               }
             }
@@ -602,25 +555,119 @@ function skillClickListener(skills) {
       });
     }
   } catch (err) {
-    _didIteratorError4 = true;
-    _iteratorError4 = err;
+    _didIteratorError = true;
+    _iteratorError = err;
   } finally {
     try {
-      if (!_iteratorNormalCompletion4 && _iterator4.return) {
-        _iterator4.return();
+      if (!_iteratorNormalCompletion && _iterator.return) {
+        _iterator.return();
       }
     } finally {
-      if (_didIteratorError4) {
-        throw _iteratorError4;
+      if (_didIteratorError) {
+        throw _iteratorError;
       }
     }
   }
 }
 
-function shiwWarning() {
+exports.skillClickListener = skillClickListener;
+
+},{"./animations":4}],6:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+function resetSVG(progressBars) {
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
+
+  try {
+    for (var _iterator = progressBars[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      var path = _step.value;
+
+      var fullLengthSVGPath = path.getTotalLength();
+      path.style.strokeDasharray = fullLengthSVGPath;
+      path.style.strokeDashoffset = fullLengthSVGPath;
+    }
+  } catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion && _iterator.return) {
+        _iterator.return();
+      }
+    } finally {
+      if (_didIteratorError) {
+        throw _iteratorError;
+      }
+    }
+  }
+}
+
+function onSVG(progressBars) {
+  var _iteratorNormalCompletion2 = true;
+  var _didIteratorError2 = false;
+  var _iteratorError2 = undefined;
+
+  try {
+    for (var _iterator2 = progressBars[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+      var path = _step2.value;
+
+      var progress = path.dataset.progress;
+      var fullLengthSVGPath = path.getTotalLength();
+      path.style.transition = 'stroke-dashoffset 2.5s';
+      path.style.strokeDashoffset = 0;
+    }
+  } catch (err) {
+    _didIteratorError2 = true;
+    _iteratorError2 = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion2 && _iterator2.return) {
+        _iterator2.return();
+      }
+    } finally {
+      if (_didIteratorError2) {
+        throw _iteratorError2;
+      }
+    }
+  }
+}
+
+exports.resetSVG = resetSVG;
+exports.onSVG = onSVG;
+
+},{}],7:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+function showWarning() {
   var warning = document.querySelector('.warning');
   warning.style.display = 'block';
 }
+
+exports.showWarning = showWarning;
+
+},{}],8:[function(require,module,exports){
+'use strict';
+
+var _detectBrowser = require('detect-browser');
+
+var _animations = require('./components/animations');
+
+var _svg = require('./components/svg');
+
+var _listeners = require('./components/listeners');
+
+var _warnings = require('./components/warnings');
+
+var browser = (0, _detectBrowser.detect)();
+
 window.onload = function () {
   var circleProgressBars = document.querySelectorAll('.circle-progress-bar__front');
   var skills = document.querySelectorAll('.software-skills__skill');
@@ -629,17 +676,17 @@ window.onload = function () {
   if (browser.name === 'chrome') {
     var allSVGpath = document.querySelectorAll('#svg circle, #svg rect, #svg line, #svg path, #svg ellipse, #svg polyline');
 
-    resetSVG(allSVGpath);
-    onSVG(allSVGpath);
+    (0, _svg.resetSVG)(allSVGpath);
+    (0, _svg.onSVG)(allSVGpath);
   } else {
-    shiwWarning();
+    (0, _warnings.showWarning)();
   }
 
-  skillClickListener(skills);
+  (0, _listeners.skillClickListener)(skills);
 
-  startFunctionAnimationOnVisibleObject(skillsList, startProgressAnimation, circleProgressBars);
+  (0, _animations.startFunctionAnimationOnVisibleObject)(skillsList, _animations.startProgressAnimation, circleProgressBars);
 };
 
-},{"detect-browser":1}]},{},[4])
+},{"./components/animations":4,"./components/listeners":5,"./components/svg":6,"./components/warnings":7,"detect-browser":1}]},{},[8])
 
 //# sourceMappingURL=main.js.map
