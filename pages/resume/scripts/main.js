@@ -451,6 +451,8 @@ function startFunctionAnimationOnVisibleObject(object, functionAnimation, param,
     var winHeight = window.innerHeight;
     var winScrollY = window.scrollY;
 
+    console.log(winHeight, winScrollY);
+
     var _object = object;
     var containerOffsetTop = _object.offsetTop;
     var containerHeight = _object.getBoundingClientRect().height;
@@ -668,7 +670,7 @@ var _warnings = require('./components/warnings');
 
 var browser = (0, _detectBrowser.detect)();
 
-window.onload = function () {
+window.addEventListener('load', function () {
   var circleProgressBars = document.querySelectorAll('.circle-progress-bar__front');
   var skills = document.querySelectorAll('.software-skills__skill');
   var skillsList = document.querySelector('.software-skills__list');
@@ -685,7 +687,7 @@ window.onload = function () {
   (0, _listeners.skillClickListener)(skills);
 
   (0, _animations.startFunctionAnimationOnVisibleObject)(skillsList, _animations.startProgressAnimation, circleProgressBars);
-};
+});
 
 },{"./components/animations":4,"./components/listeners":5,"./components/svg":6,"./components/warnings":7,"detect-browser":1}]},{},[8])
 
